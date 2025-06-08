@@ -1,220 +1,121 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
   <title>Kim Quantum Lab | University of Arizona</title>
-
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;600&display=swap" rel="stylesheet">
-
   <style>
-
     :root {
-
       --ua-red: #AB0520;
-
       --ua-blue: #00205B;
-
       --text-dark: #111;
-
       --text-light: #666;
-
       --bg-light: #ffffff;
-
     }
-
     * {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
-
     body {
-
       font-family: 'Inter', sans-serif;
-
       font-weight: 300;
-
       background: var(--bg-light);
-
       color: var(--text-dark);
-
       text-align: center;
-
+      line-height: 1.6;
     }
-
     header {
-
-      padding: 4rem 1rem 2rem;
-
+      padding: 3rem 1rem 2rem;
     }
-
     header h1 {
-
       font-family: 'DM Serif Display', serif;
-
-      font-size: 2.8rem;
-
+      font-size: 2.2rem;
       letter-spacing: 0.05rem;
-
     }
-
     header h2 {
-
       font-weight: 300;
-
-      font-size: 1.2rem;
-
+      font-size: 1rem;
       color: var(--text-light);
-
       margin-top: 0.5rem;
-
     }
-
-    header h3 {
-
-      font-weight: 300;
-
-      font-size: 1rem;
-
-      color: var(--text-light);
-
-      margin-top: 0.3rem;
-
-    }
-
     nav {
-
       padding: 1rem 0;
-
       border-top: 1px solid #ccc;
-
       border-bottom: 1px solid #ccc;
-
       margin-bottom: 2rem;
-
+      flex-wrap: wrap;
     }
-
     nav a {
-
-      margin: 0 1.25rem;
-
+      display: inline-block;
+      margin: 0.5rem 1rem;
       text-decoration: none;
-
       color: var(--text-dark);
-
       font-weight: 500;
-
       font-size: 1rem;
-
     }
-
-
-
-    .intro h3 {
-
-      display: none;
-
+    .intro {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: left;
     }
-
     .intro p {
-
       color: var(--text-light);
-
       font-size: 1rem;
-
       margin-top: 1rem;
-
     }
-
     .graphic img {
-
-      width: 90%;
-
+      width: 95%;
       max-width: 600px;
-
-      margin-top: 2rem;
-
+      margin: 2rem auto;
     }
-
     footer {
-
-      margin-top: 4rem;
-
+      margin-top: 3rem;
       font-size: 0.85rem;
-
       color: #aaa;
-
       padding: 2rem 1rem;
-
     }
-
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header h2 {
+        font-size: 0.95rem;
+      }
+      nav a {
+        font-size: 0.95rem;
+        margin: 0.3rem 0.6rem;
+      }
+    }
   </style>
-
 </head>
-
 <body>
-
   <header>
-
     <h1 style="font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 0.08rem;">Kim Quantum Lab</h1>
-
     <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-
   </header>
 
-
-
   <nav>
-
     <a href="index.html">Home</a>
-
     <a href="research.html">Research</a>
-
     <a href="team.html">The Team</a>
-
     <a href="publications.html">Publications</a>
-
     <a href="contact.html">Contact</a>
-
   </nav>
 
-
-
   <div class="intro" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem; text-align: justify;">
-
     <p>Welcome to Kim Quantum Lab. Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.</p>
-
     <p>Please browse these pages to learn more about our team and the research opportunities we offer, and don't hesitate to reach out if you have any questions.</p>
-
   </div>
-
-
 
   <div class="graphic">
-
     <img src="graphic.png" alt="Lab Visual Representation" />
-
   </div>
 
-
-
   <footer>
-
     &copy; 2025 Kim Quantum Lab • University of Arizona
-
   </footer>
-
 </body>
-
 </html>
-
