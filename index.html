@@ -41,6 +41,8 @@
       box-shadow: 0 0 0 100vmax var(--side-bg);
       clip-path: inset(0 -100vmax);
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     header {
       padding: 2rem 1rem 1rem;
@@ -87,6 +89,7 @@
       margin: 2rem auto 3rem;
       padding: 0;
       text-align: left;
+      flex: 1;
     }
     }
     .intro p {
@@ -100,6 +103,8 @@
       margin: 1.5rem auto;
       max-width: 100%;
       height: auto;
+      object-fit: cover;
+      object-position: center;
     }
     .highlight-text {
       color: #5b84c4;
@@ -143,7 +148,9 @@
       <a href="publications.html">Publications</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <img src="Main image 1.jpg" alt="Lab visual" />
+
+    <img src="images/lab_intro.jpg" alt="Lab visual" class="intro-img" />
+    
     <div class="intro">
       <p><span class="highlight-text">Welcome to Kim Quantum Lab!</span><br><br>
       
