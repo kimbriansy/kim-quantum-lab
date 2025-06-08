@@ -141,23 +141,6 @@
       }
     }
   </style>
-  <script>
-    window.addEventListener('scroll', function () {
-      const header = document.querySelector("header");
-      const title = header.querySelector("h1");
-      const subtitle = header.querySelector("h2");
-      
-      const maxScroll = 150; // Adjust this to change how fast it shrinks
-      const scroll = Math.min(window.scrollY, maxScroll);
-      const scale = 1 - (scroll / maxScroll) * 0.3; // shrink to 70% at most
-  
-      title.style.transform = `scale(${scale})`;
-      title.style.transformOrigin = "top center";
-    
-      subtitle.style.transform = `scale(${scale})`;
-      subtitle.style.transformOrigin = "top center";
-    });
-  </script>
 </head>
 <body>
   <div class="content-wrapper">
