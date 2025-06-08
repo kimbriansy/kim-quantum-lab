@@ -31,29 +31,37 @@
     }
     header h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.8rem;
       letter-spacing: 0.05rem;
     }
     header h2 {
       font-weight: 300;
-      font-size: 1rem;
+      font-size: 1.2rem;
       color: var(--text-light);
       margin-top: 0.5rem;
     }
     nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
       padding: 1rem 0;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
       flex-wrap: wrap;
     }
     nav a {
-      display: inline-block;
-      margin: 0.5rem 1rem;
       text-decoration: none;
       color: var(--text-dark);
       font-weight: 500;
       font-size: 1rem;
+      padding-bottom: 2px;
+    }
+    nav a[href="index.html"] {
+      border-bottom: 2px solid #cce5ff;
     }
     .intro {
       max-width: 800px;
@@ -93,7 +101,7 @@
 </head>
 <body>
   <header>
-    <h1 style="font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 0.08rem;">Kim Quantum Lab</h1>
+    <h1>Kim Quantum Lab</h1>
     <h2>Department of Materials Science & Engineering, University of Arizona</h2>
   </header>
 
@@ -105,7 +113,7 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <div class="intro" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem; text-align: justify;">
+  <div class="intro">
     <p>Welcome to Kim Quantum Lab. Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.</p>
     <p>Please browse these pages to learn more about our team and the research opportunities we offer, and don't hesitate to reach out if you have any questions.</p>
   </div>
