@@ -12,6 +12,7 @@
       --text-dark: #111;
       --text-light: #666;
       --bg-light: #ffffff;
+      --side-bg: #f1f1f1;
       --highlight: #cce5ff;
     }
     * {
@@ -23,12 +24,18 @@
       
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      background: var(--bg-light);
+      background: var(--side-bg);
       color: var(--text-dark);
       text-align: center;
       padding: 0;
       font-size: 1.25rem;
     
+    }
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 2rem auto 3rem;
+      padding: 0 1rem;
+      background: var(--bg-light);
     }
     header {
       padding: 2rem 1rem 1rem;
@@ -103,31 +110,33 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Kim Quantum Lab</h1>
-    <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-  </header>
+  <div class="content-wrapper">
+    <header>
+      <h1>Kim Quantum Lab</h1>
+      <h2>Department of Materials Science & Engineering, University of Arizona</h2>
+    </header>
+  
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="team.html">Team</a>
+      <a href="publications.html">Publications</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  
+    <div class="intro">
+      <p>Welcome to the Kim Quantum Lab at the University of Arizona!</p>
+      <p>Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.</p>
+      <p>Please browse these pages to learn more about our team and the research opportunities we offer, and don't hesitate to reach out if you have any questions.</p>
+    </div>
+  
+    <div class="graphic">
+      <img src="graphic.png" alt="Lab Visual Representation" />
+    </div>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="intro">
-    <p>Welcome to the Kim Quantum Lab at the University of Arizona!</p>
-    <p>Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.</p>
-    <p>Please browse these pages to learn more about our team and the research opportunities we offer, and don't hesitate to reach out if you have any questions.</p>
+    <footer>
+      &copy; 2025 Kim Quantum Lab • University of Arizona
+    </footer>
   </div>
-
-  <div class="graphic">
-    <img src="graphic.png" alt="Lab Visual Representation" />
-  </div>
-
-  <footer>
-    &copy; 2025 Kim Quantum Lab • University of Arizona
-  </footer>
 </body>
 </html>
