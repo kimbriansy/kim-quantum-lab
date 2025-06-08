@@ -1,220 +1,98 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
   <meta charset="UTF-8" />
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Kim Quantum Lab | University of Arizona</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Publications | Kim Quantum Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;600&display=swap" rel="stylesheet">
-
   <style>
-
-    :root {
-
-      --ua-red: #AB0520;
-
-      --ua-blue: #00205B;
-
-      --text-dark: #111;
-
-      --text-light: #666;
-
-      --bg-light: #ffffff;
-
-    }
-
-    * {
-
-      box-sizing: border-box;
-
-      margin: 0;
-
-      padding: 0;
-
-    }
-
     body {
-
       font-family: 'Inter', sans-serif;
-
       font-weight: 300;
-
-      background: var(--bg-light);
-
-      color: var(--text-dark);
-
-      text-align: center;
-
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+      color: #111;
+      background-color: #ffffff;
     }
-
-    header {
-
-      padding: 4rem 1rem 2rem;
-
-    }
-
     header h1 {
-
       font-family: 'DM Serif Display', serif;
-
-      font-size: 2.8rem;
-
-      letter-spacing: 0.05rem;
-
+      font-size: 2.5rem;
+      margin-bottom: 0.25rem;
     }
-
     header h2 {
-
-      font-weight: 300;
-
-      font-size: 1.2rem;
-
-      color: var(--text-light);
-
-      margin-top: 0.5rem;
-
-    }
-
-    header h3 {
-
-      font-weight: 300;
-
       font-size: 1rem;
-
-      color: var(--text-light);
-
-      margin-top: 0.3rem;
-
-    }
-
-    nav {
-
-      padding: 1rem 0;
-
-      border-top: 1px solid #ccc;
-
-      border-bottom: 1px solid #ccc;
-
+      color: #666;
       margin-bottom: 2rem;
-
     }
-
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1rem 0;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
     nav a {
-
-      margin: 0 1.25rem;
-
       text-decoration: none;
-
-      color: var(--text-dark);
-
+      color: #111;
       font-weight: 500;
-
-      font-size: 1rem;
-
+      padding-bottom: 2px;
     }
-
-
-
-    .intro h3 {
-
-      display: none;
-
+    nav a[href="publications.html"] {
+      border-bottom: 2px solid #cce5ff;
     }
-
-    .intro p {
-
-      color: var(--text-light);
-
-      font-size: 1rem;
-
-      margin-top: 1rem;
-
-    }
-
-    .graphic img {
-
-      width: 90%;
-
-      max-width: 600px;
-
+    h3 {
+      color: #00205B;
       margin-top: 2rem;
-
     }
-
-    footer {
-
-      margin-top: 4rem;
-
-      font-size: 0.85rem;
-
-      color: #aaa;
-
-      padding: 2rem 1rem;
-
+    p {
+      margin-bottom: 0.75rem;
     }
-
+    .submitted, .peer-reviewed {
+      margin-bottom: 2rem;
+    }
+    .submitted h4, .peer-reviewed h4 {
+      margin-bottom: 0.5rem;
+      color: #444;
+    }
   </style>
-
 </head>
-
 <body>
-
   <header>
-
-    <h1 style="font-family: 'Inter', sans-serif; font-weight: 300; letter-spacing: 0.08rem;">Kim Quantum Lab</h1>
-
+    <h1>Kim Quantum Lab</h1>
     <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-
   </header>
 
-
-
   <nav>
-
     <a href="index.html">Home</a>
-
     <a href="research.html">Research</a>
-
     <a href="team.html">The Team</a>
-
     <a href="publications.html">Publications</a>
-
     <a href="contact.html">Contact</a>
-
   </nav>
 
+  <main>
+    <h3>Publications</h3>
 
+    <div class="submitted">
+      <h4>Submitted</h4>
+      <p>H. Park et al. “P-type vertical FETs realized by using Fermi-level pinning-free 2D metallic electrodes,” submitted (2024).</p>
+      <p>F. L. Ruta et al. “Good plasmons in a bad metal,” submitted (2024). DOI: 10.48550/arXiv:2406.05703.</p>
+    </div>
 
-  <div class="intro" style="max-width: 800px; margin: 3rem auto; padding: 0 1rem; text-align: justify;">
-
-    <p>Welcome to Kim Quantum Lab. Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.</p>
-
-    <p>Please browse these pages to learn more about our team and the research opportunities we offer, and don't hesitate to reach out if you have any questions.</p>
-
-  </div>
-
-
-
-  <div class="graphic">
-
-    <img src="graphic.png" alt="Lab Visual Representation" />
-
-  </div>
-
-
-
-  <footer>
-
-    &copy; 2025 Kim Quantum Lab • University of Arizona
-
-  </footer>
-
+    <div class="peer-reviewed">
+      <h4>Peer-Reviewed (selected)</h4>
+      <p>Y. Shao et al. “Magnetically confined surface and bulk excitons in a layered antiferromagnet,” *Nature Materials*, accepted (2024).</p>
+      <p>B. S. Y. Kim et al. “Advances and applications of oxidized van der Waals transition metal dichalcogenides,” *Advanced Science*, accepted (2024).</p>
+      <p>K. Lee et al. “Double-side doped 2D TMD FET Channel,” *ACS Appl. Electron. Mater.* 6, 3894–3900 (2024). DOI: 10.1021/acsaelm.4c00506.</p>
+      <p>F. L. Ruta et al. “Hyperbolic exciton polaritons in a van der Waals magnet,” *Nature Communications* 14, 8261 (2023). DOI: 10.1038/s41467-023-44100-6.</p>
+      <p>B. S. Y. Kim et al. “Ambipolar charge-transfer graphene plasmonic cavities.” *Nature Materials* 22, 838–843 (2023). DOI: 10.1038/s41563-023-01520-5.</p>
+      <!-- Add more entries as needed -->
+    </div>
+  </main>
 </body>
-
 </html>
-
