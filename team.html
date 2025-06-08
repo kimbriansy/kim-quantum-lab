@@ -1,67 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Team | Kim Quantum Lab</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kim Quantum Lab | University of Arizona</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --ua-red: #AB0520;
+      --ua-blue: #00205B;
+      --text-dark: #111;
+      --text-light: #666;
+      --bg-light: #ffffff;
+      --highlight: #cce5ff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
+      
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem;
-      line-height: 1.6;
-      color: #111;
-      background-color: #ffffff;
+      background: var(--bg-light);
+      color: var(--text-dark);
+      text-align: center;
+      padding: 0;
+      font-size: 1.25rem;
+    
+    }
+    header {
+      padding: 2rem 1rem 1rem;
     }
     header h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 2.5rem;
-      margin-bottom: 0.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 2.8rem;
+      letter-spacing: 0.05rem;
+      font-weight: 500;
     }
     header h2 {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 2rem;
+      font-weight: 300;
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-top: 0.5rem;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.2rem;
       padding: 1rem 0;
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
       margin-bottom: 2rem;
-      max-width: 800px;
+      flex-wrap: wrap;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-      flex-wrap: wrap;
     }
     nav a {
       text-decoration: none;
-      color: #111;
+      color: var(--text-dark);
       font-weight: 500;
-      padding-bottom: 2px;
+      font-size: 1.05rem;
+      padding-bottom: 3px;
     }
     nav a[href="team.html"] {
-      border-bottom: 2px solid #cce5ff;
-    }
-    h3 {
-      color: #00205B;
-      margin-top: 2rem;
-    }
-    .member {
-      margin-bottom: 1.5rem;
-    }
-    .member h4 {
-      margin-bottom: 0.2rem;
       font-weight: 600;
+      color: #5b84c4;
     }
-    .member p {
-      color: #666;
-      margin: 0;
+    .intro {
+      max-width: 900px;
+      margin: 2rem auto 3rem;
+      padding: 0;
+      text-align: left;
+    }
+    .intro p {
+      color: var(--text-light);
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    .graphic img {
+      width: 95%;
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+    footer {
+      margin-top: 2rem;
+      font-size: 0.875rem;
+      color: #aaa;
+      padding: 1.5rem 0;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header h2 {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -74,7 +111,7 @@
   <nav>
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
-    <a href="team.html">The Team</a>
+    <a href="team.html">Team</a>
     <a href="publications.html">Publications</a>
     <a href="contact.html">Contact</a>
   </nav>
