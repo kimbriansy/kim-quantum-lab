@@ -111,10 +111,12 @@
       font-weight: 600;
     }
     .intro img {
-      display: block;
-      margin: 1rem auto;
-      max-width: 100%;
-      height: auto;
+        display: block;
+        margin: 1.5rem auto;
+        max-width: 100%;
+        height: 300px;         /* or whatever fixed height you prefer */
+        object-fit: cover;
+        object-position: center;
     }
     footer {
       margin-top: 2rem;
@@ -147,11 +149,11 @@
       <a href="team.html">Team</a>
       <a href="publications.html">Publications</a>
       <a href="contact.html">Contact</a>
-    </nav>
-
-    <img src="images/lab_intro.jpg" alt="Lab visual" class="intro-img" />
+    </nav>   
     
     <div class="intro">
+      <img src="images/lab_intro.jpg" alt="Lab visual" class="intro-img" />
+      
       <p><span class="highlight-text">Welcome to Kim Quantum Lab!</span><br><br>
       
       Our lab designs and engineers low-dimensional quantum materials and heterostructures from the atomic level to the system level for a new generation of electronic, photonic and quantum technologies.<br><br>
