@@ -77,6 +77,15 @@
       color: var(--text-light);
       margin-top: 0.15rem;
     }
+    header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+    }
     nav {
       display: flex;
       justify-content: center;
@@ -156,25 +165,7 @@
       opacity: 0;
       pointer-events: none;
     }
-  </style>
-  <script>
-  let lastScrollY = window.scrollY;
-  const header = document.getElementById('lab-header');
-
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-
-    if (currentScrollY > lastScrollY && currentScrollY > 80) {
-      // Scrolling down
-      header.classList.add('hidden');
-    } else {
-      // Scrolling up
-      header.classList.remove('hidden');
-    }
-
-    lastScrollY = currentScrollY;
-  });
-</script>
+</style>
 </head>
 <body>
   <div class="content-wrapper">
@@ -223,5 +214,23 @@
       &copy; 2025 Kim Quantum Lab • University of Arizona
     </footer>
   </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let lastScrollY = window.scrollY;
+      const header = document.getElementById('lab-header');
+  
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+  
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          header.classList.add('hidden');
+        } else {
+          header.classList.remove('hidden');
+        }
+  
+        lastScrollY = currentScrollY;
+      });
+    });
+  </script>
 </body>
 </html>
