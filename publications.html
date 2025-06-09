@@ -196,6 +196,18 @@
         object-fit: cover;
         object-position: center;
     }
+    .intro-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white; /* or black, depending on image */
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+      text-align: center;
+      white-space: nowrap;
+    }
     footer {
       margin-top: 2rem;
       font-size: 0.875rem;
@@ -233,40 +245,65 @@
 </head>
 <body>
   <div class="content-wrapper">
-
-    <section id="publications">
-      <h2>Publications</h2>
+    <div class="topbar">
+      <header id="lab-header">
+        <h1>Kim Quantum Lab</h1>
+        <h2>Department of Materials Science & Engineering, University of Arizona</h2>
+      </header>
+      <nav class="nav-bar">
+<!--         <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div> -->
+        <div class="nav-label">
+          <a href="index.html">
+            <img src="Logo3.png" alt="Kim Quantum Lab Logo" class="logo-img">
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+<!--           <a href="research.html">Research</a> -->
+          <a href="team.html">Team</a>
+          <a href="publications.html">Publications</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <div class="topimage">
+      <img src="publications.png" alt="Lab visual" class="intro-img" />
+      <div class="intro-text">Publications</div>
+    </div>
     
-      <ol class="pub-list">
-        <!-- Published -->
-        <li>
-          <span class="pub-authors">Kim, B., Smith, J., Lee, T.</span>,
-          <span class="pub-title">“Controlling Plasmon Modes in Moiré Superlattices”</span>,
-          <span class="pub-journal"><em>Nature Materials</em></span>,
-          <span class="pub-year">2024</span>
-        </li>
-        <li>
-          <span class="pub-authors">Kim, B., Zhang, Y.</span>,
-          <span class="pub-title">“Graphene-based Imaging of Subsurface Strain”</span>,
-          <span class="pub-journal"><em>ACS Nano</em></span>,
-          <span class="pub-year">2023</span>
-        </li>
-    
-        <!-- Submitted -->
-        <li>
-          <span class="pub-authors">Kim, B., Jones, R.</span>,
-          <span class="pub-title">“Mid-IR Nanoimaging of Organic-Rich Shale Interfaces”</span>,
-          <span class="pub-journal"><em>Submitted to Science Advances</em></span>,
-          <span class="pub-year">2025 (under review)</span>
-        </li>
-        <li>
-          <span class="pub-authors">Kim, B., Patel, M.</span>,
-          <span class="pub-title">“Polaritonic Logic in 2D Heterostructures”</span>,
-          <span class="pub-journal"><em>Preprint</em></span>,
-          <span class="pub-year">2025</span>
-        </li>
-      </ol>
-    </section>
+    <div class="intro">
+       <section id="publications">       
+          <ol class="pub-list">
+            <!-- Published -->
+            <li>
+              <span class="pub-authors">Kim, B., Smith, J., Lee, T.</span>,
+              <span class="pub-title">“Controlling Plasmon Modes in Moiré Superlattices”</span>,
+              <span class="pub-journal"><em>Nature Materials</em></span>,
+              <span class="pub-year">2024</span>
+            </li>
+            <li>
+              <span class="pub-authors">Kim, B., Zhang, Y.</span>,
+              <span class="pub-title">“Graphene-based Imaging of Subsurface Strain”</span>,
+              <span class="pub-journal"><em>ACS Nano</em></span>,
+              <span class="pub-year">2023</span>
+            </li>
+        
+            <!-- Submitted -->
+            <li>
+              <span class="pub-authors">Kim, B., Jones, R.</span>,
+              <span class="pub-title">“Mid-IR Nanoimaging of Organic-Rich Shale Interfaces”</span>,
+              <span class="pub-journal"><em>Submitted to Science Advances</em></span>,
+              <span class="pub-year">2025 (under review)</span>
+            </li>
+            <li>
+              <span class="pub-authors">Kim, B., Patel, M.</span>,
+              <span class="pub-title">“Polaritonic Logic in 2D Heterostructures”</span>,
+              <span class="pub-journal"><em>Preprint</em></span>,
+              <span class="pub-year">2025</span>
+            </li>
+          </ol>
+        </section>     
+    </div>
 
     <footer>
       &copy; 2025 Kim Quantum Lab • University of Arizona
