@@ -145,12 +145,41 @@
         font-size: 1rem;
       }
     }
+
+    #lab-header {
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      will-change: transform, opacity;
+    }  
+
+    #lab-header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
+  <script>
+  let lastScrollY = window.scrollY;
+  const header = document.getElementById('lab-header');
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > lastScrollY && currentScrollY > 80) {
+      // Scrolling down
+      header.classList.add('hidden');
+    } else {
+      // Scrolling up
+      header.classList.remove('hidden');
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>
 </head>
 <body>
   <div class="content-wrapper">
     <div class="topbar">
-      <header>
+      <header id="lab-header">
         <h1>Kim Quantum Lab</h1>
         <h2>Department of Materials Science & Engineering, University of Arizona</h2>
       </header>
