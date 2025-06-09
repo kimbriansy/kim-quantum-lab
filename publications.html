@@ -12,26 +12,66 @@
       --text-dark: #111;
       --text-light: #666;
       --bg-light: #ffffff;
-      --highlight: #cce5ff;
+      --side-bg: #f1f1f1;
+      --highlight: #ff0029;
     }
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    html, body {
+      height: 100%;
+    }
     body {
-      
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      background: var(--bg-light);
+      background: var(--bg-light); /* Top and bottom now white */
       color: var(--text-dark);
       text-align: center;
+      font-size: 1rem;
       padding: 0;
-      font-size: 1.25rem;
-    
+      line-height: 1.6;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: var(--bg-light);
+      z-index: 9999;
+      /*border-bottom: 1px solid #ccc;*/
+    }
+    .topimage {
+      top: 0;
+      background: var(--bg-light);
+      z-index: 100;
+    }
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0rem auto 3rem;
+      padding: 0 0; /* 0.5rem */
+      background: var(--bg-light);
+      box-shadow: 0 0 0 100vmax var(--side-bg);
+      clip-path: inset(0 -100vmax);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-img {
+      height: 40px;         /* adjust as needed */
+      width: auto;
+      display: block;
     }
     header {
-      padding: 2rem 1rem 1rem;
+      padding: 0rem 1rem 1rem;
+      transition: transform 0.4s ease, opacity 0.4s ease, height 0.4s ease, padding 0.4s ease;
+      will-change: transform, opacity, height;
+      transform-origin: top center;
+    }
+    header.shrink h1 {
+      font-size: 1.6rem;
+    }
+    header.shrink h2 {
+      font-size: 1.6rem;
     }
     header h1 {
       font-family: 'DM Sans', sans-serif;
@@ -43,21 +83,45 @@
       font-weight: 300;
       font-size: 1.2rem;
       color: var(--text-light);
-      margin-top: 0.5rem;
+      margin-top: 0.15rem;
     }
-    nav {
+    header.hidden {
+      transform: scaleY(0.6) translateY(-30%);
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+/*     nav {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1rem;
       padding: 1rem 0;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 2rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      margin-bottom: 0rem;
       flex-wrap: wrap;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: var(--bg-light);
+    } */
+
+    nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
+      position: sticky;
+      top: 0;
+      z-index: 9998;
     }
+    
     nav a {
       text-decoration: none;
       color: var(--text-dark);
@@ -66,30 +130,78 @@
       padding-bottom: 3px;
     }
     nav a[href="publications.html"] {
-      font-weight: 600;
-      color: #5b84c4;
+      font-weight: 500;
+      color: #ff0029;
     }
+    nav.nav-bar {
+      position: relative;
+      display: flex;
+      justify-content: center; /* center nav links */
+      align-items: center;
+      padding: 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
+      z-index: 9998;
+    }
+    
+    .nav-label {
+      position: absolute;
+      left: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ua-red);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      white-space: nowrap;
+      visibility: hidden;
+    }
+    
+    #lab-header.hidden + nav .nav-label {
+      opacity: 1;
+      transform: translateX(0);
+      visibility: visible;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
     .intro {
       max-width: 900px;
       margin: 2rem auto 3rem;
       padding: 0;
       text-align: left;
+      flex: 1;
+    }
     }
     .intro p {
       color: var(--text-light);
       font-size: 1rem;
       margin-top: 1rem;
+      line-height: 1.6;
     }
-    .graphic img {
-      width: 95%;
-      max-width: 600px;
-      margin: 2rem auto;
+    .highlight-text {
+      color: #ff0029;
+      font-weight: 500;
+    }
+    .intro-img {
+        display: block;
+        width: 1000px; /*calc(100%)*/
+        max-width: 100%;
+        margin: 0 0 1rem;
+        height: 300px;         /* or whatever fixed height you prefer */
+        object-fit: cover;
+        object-position: center;
     }
     footer {
       margin-top: 2rem;
       font-size: 0.875rem;
       color: #aaa;
       padding: 1.5rem 0;
+      background: var(--bg-light);
     }
 
     @media (max-width: 600px) {
@@ -100,42 +212,87 @@
         font-size: 1rem;
       }
     }
-  </style>
+
+    @media (max-width: 600px) {
+      .logo-img {
+        height: 24px;
+      }
+    }
+
+    #lab-header {
+      transition: transform 0.4s ease, opacity 0.4s ease; height 0.4s ease, padding 0.4s ease;
+      will-change: transform, opacity;
+    }  
+
+    #lab-header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Kim Quantum Lab</h1>
-    <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-  </header>
+  <div class="content-wrapper">
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">The Team</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+    <section id="publications">
+      <h2>Publications</h2>
+    
+      <ol class="pub-list">
+        <!-- Published -->
+        <li>
+          <span class="pub-authors">Kim, B., Smith, J., Lee, T.</span>,
+          <span class="pub-title">“Controlling Plasmon Modes in Moiré Superlattices”</span>,
+          <span class="pub-journal"><em>Nature Materials</em></span>,
+          <span class="pub-year">2024</span>
+        </li>
+        <li>
+          <span class="pub-authors">Kim, B., Zhang, Y.</span>,
+          <span class="pub-title">“Graphene-based Imaging of Subsurface Strain”</span>,
+          <span class="pub-journal"><em>ACS Nano</em></span>,
+          <span class="pub-year">2023</span>
+        </li>
+    
+        <!-- Submitted -->
+        <li>
+          <span class="pub-authors">Kim, B., Jones, R.</span>,
+          <span class="pub-title">“Mid-IR Nanoimaging of Organic-Rich Shale Interfaces”</span>,
+          <span class="pub-journal"><em>Submitted to Science Advances</em></span>,
+          <span class="pub-year">2025 (under review)</span>
+        </li>
+        <li>
+          <span class="pub-authors">Kim, B., Patel, M.</span>,
+          <span class="pub-title">“Polaritonic Logic in 2D Heterostructures”</span>,
+          <span class="pub-journal"><em>Preprint</em></span>,
+          <span class="pub-year">2025</span>
+        </li>
+      </ol>
+    </section>
 
-  <div class="content">
-    <h3>Publications</h3>
-    <p>Our publications highlight ongoing contributions in quantum materials, plasmonics, and nanoscale device physics. Below is the complete list of peer-reviewed and submitted works authored by our group members.</p>
-
-    <h3>Submitted</h3>
-    <ol start="1">
-      <li>H. Park, H. Shin, N. Ali, H. Choi, B. S. Y. Kim, B. Kang, M. S. Choi, and W. J. Yoo. “P-type vertical FETs realized by using Fermi-level pinning-free 2D metallic electrodes,” submitted (2024).</li>
-      <li>F. L. Ruta, Y. Shao, S. Acharya, A. Mu, N. H. Jo, S. H. Ryu, D. Balatsky, D. Pashov, B. S. Y. Kim, M. I. Katsnelson, J. G. Analytis, E. Rotenberg, A. J. Millis, M. van Schilfgaarde, and D. N. Basov. “Good plasmons in a bad metal,” submitted (2024). DOI: 10.48550/arXiv:2406.05703.</li>
-    </ol>
-
-    <h3>Peer-Reviewed</h3>
-    <ol start="3">
-      <li>Y. Shao, F. Dirnberger, S. Qiu, S. Acharya, S. Terres, E. Telford, D. Pashov, B. S. Y. Kim, F. Ruta, D. G. Chica, Y. Wang, Y. J. Bae, A. J. Millis, M. I. Katsnelson, K. Mosina, Z. Sofer, A. Chernikov, M. van Schilfgaarde, X. Zhu, X. Roy, and D. N. Basov. “Magnetically confined surface and bulk excitons in a layered antiferromagnet,” Nature Mater., accepted (2024).</li>
-    </ol>
-
-    <p style="margin-top: 1.5rem; font-size: 0.9rem;">*Equal contribution<br />†Corresponding author</p>
+    <footer>
+      &copy; 2025 Kim Quantum Lab • University of Arizona
+    </footer>
   </div>
-
-  <footer>
-    &copy; 2025 Kim Quantum Lab • University of Arizona
-  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let lastScrollY = window.scrollY;
+      const header = document.getElementById('lab-header');
+  
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+  
+        // Hide when scrolling down
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          header.classList.add('hidden');
+        }
+  
+        // Only show header again when near top
+        if (currentScrollY < 50) {
+          header.classList.remove('hidden');
+        }
+  
+        lastScrollY = currentScrollY;
+      });
+    });
+  </script>
 </body>
 </html>
