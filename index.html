@@ -56,6 +56,11 @@
       display: flex;
       flex-direction: column;
     }
+    .logo-img {
+      height: 32px;         /* adjust as needed */
+      width: auto;
+      display: block;
+    }
     header {
       padding: 0rem 1rem 1rem;
       transition: transform 0.4s ease, opacity 0.4s ease, height 0.4s ease, padding 0.4s ease;
@@ -208,6 +213,12 @@
       }
     }
 
+    @media (max-width: 600px) {
+      .logo-img {
+        height: 24px;
+      }
+    }
+
     #lab-header {
       transition: transform 0.4s ease, opacity 0.4s ease; height 0.4s ease, padding 0.4s ease;
       will-change: transform, opacity;
@@ -228,7 +239,12 @@
         <h2>Department of Materials Science & Engineering, University of Arizona</h2>
       </header>
       <nav class="nav-bar">
-        <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div>
+<!--         <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div> -->
+        <div class="nav-label">
+          <a href="index.html">
+            <img src="logo.png" alt="Kim Quantum Lab Logo" class="logo-img">
+          </a>
+        </div>
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="research.html">Research</a>
