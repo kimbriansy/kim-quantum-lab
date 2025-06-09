@@ -222,9 +222,13 @@
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
   
+        // Hide when scrolling down
         if (currentScrollY > lastScrollY && currentScrollY > 80) {
           header.classList.add('hidden');
-        } else {
+        }
+  
+        // Only show header again when near top
+        if (currentScrollY < 50) {
           header.classList.remove('hidden');
         }
   
