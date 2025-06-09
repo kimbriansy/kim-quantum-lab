@@ -128,7 +128,21 @@
       font-weight: 500;
       color: #ff0029;
     }
-   .nav-label {
+    nav.nav-bar {
+      position: relative;
+      display: flex;
+      justify-content: center; /* center nav links */
+      align-items: center;
+      padding: 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
+      z-index: 9998;
+    }
+    
+    .nav-label {
+      position: absolute;
+      left: 1rem;
       font-weight: 600;
       font-size: 0.9rem;
       color: var(--ua-red);
@@ -137,16 +151,6 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
       white-space: nowrap;
       visibility: hidden;
-      margin-right: auto;     /* Pushes label to far left */
-      flex-shrink: 0;          /* Prevents it from collapsing */
-    }
-    
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      flex: 1;
     }
     
     #lab-header.hidden + nav .nav-label {
@@ -154,21 +158,10 @@
       transform: translateX(0);
       visibility: visible;
     }
-
-    .nav-label a {
-      text-decoration: none;
-      color: var(--ua-red);
-      font-weight: bold;
-    }
     
     .nav-links {
       display: flex;
-      justify-content: center;
       gap: 1rem;
-    }
-    
-    .nav-spacer {
-      width: 1rem; /* invisible spacer to maintain balance */
     }
     
     .intro {
@@ -234,9 +227,8 @@
         <h1>Kim Quantum Lab</h1>
         <h2>Department of Materials Science & Engineering, University of Arizona</h2>
       </header>
-      <nav>
+      <nav class="nav-bar">
         <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div>
-        <div class="nav-spacer"></div> <!-- invisible filler -->
         <div class="nav-links">
           <a href="index.html">Home</a>
           <a href="research.html">Research</a>
@@ -244,7 +236,6 @@
           <a href="publications.html">Publications</a>
           <a href="contact.html">Contact</a>
         </div>
-        <div class="nav-spacer"></div> <!-- invisible filler -->
       </nav>
     </div>
     <div class="topimage">
