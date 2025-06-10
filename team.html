@@ -12,26 +12,67 @@
       --text-dark: #111;
       --text-light: #666;
       --bg-light: #ffffff;
-      --highlight: #cce5ff;
+      --side-bg: #f1f1f1;
+      --highlight: #ff0029;
     }
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+    html, body {
+      height: 100%;
+    }
     body {
-      
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      background: var(--bg-light);
+      background: var(--bg-light); /* Top and bottom now white */
       color: var(--text-dark);
       text-align: center;
+      font-size: 1rem;
       padding: 0;
-      font-size: 1.25rem;
-    
+      line-height: 1.6;
+    }
+    .topbar {
+      position: sticky;
+      top: 0;
+      background: var(--bg-light);
+      z-index: 9999;
+      /*border-bottom: 1px solid #ccc;*/
+    }
+    .topimage {
+      top: 0;
+      background: var(--bg-light);
+      z-index: 100;
+      position: relative;
+    }
+    .content-wrapper {
+      max-width: 1000px;
+      margin: 0rem auto 3rem;
+      padding: 0 0; /* 0.5rem */
+      background: var(--bg-light);
+      box-shadow: 0 0 0 100vmax var(--side-bg);
+      clip-path: inset(0 -100vmax);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-img {
+      height: 40px;         /* adjust as needed */
+      width: auto;
+      display: block;
     }
     header {
-      padding: 2rem 1rem 1rem;
+      padding: 0rem 1rem 1rem;
+      transition: transform 0.4s ease, opacity 0.4s ease, height 0.4s ease, padding 0.4s ease;
+      will-change: transform, opacity, height;
+      transform-origin: top center;
+    }
+    header.shrink h1 {
+      font-size: 1.6rem;
+    }
+    header.shrink h2 {
+      font-size: 1.6rem;
     }
     header h1 {
       font-family: 'DM Sans', sans-serif;
@@ -43,21 +84,45 @@
       font-weight: 300;
       font-size: 1.2rem;
       color: var(--text-light);
-      margin-top: 0.5rem;
+      margin-top: 0.15rem;
     }
-    nav {
+    header.hidden {
+      transform: scaleY(0.6) translateY(-30%);
+      opacity: 0;
+      pointer-events: none;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+/*     nav {
       display: flex;
       justify-content: center;
-      gap: 1.2rem;
+      gap: 1rem;
       padding: 1rem 0;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      margin-bottom: 2rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      margin-bottom: 0rem;
       flex-wrap: wrap;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: var(--bg-light);
+    } */
+
+    nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
+      position: sticky;
+      top: 0;
+      z-index: 9998;
     }
+    
     nav a {
       text-decoration: none;
       color: var(--text-dark);
@@ -66,30 +131,92 @@
       padding-bottom: 3px;
     }
     nav a[href="team.html"] {
-      font-weight: 600;
-      color: #5b84c4;
+      font-weight: 500;
+      color: #ff0029;
     }
+    nav.nav-bar {
+      position: relative;
+      display: flex;
+      justify-content: center; /* center nav links */
+      align-items: center;
+      padding: 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
+      z-index: 9998;
+    }
+    
+    .nav-label {
+      position: absolute;
+      left: 1rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--ua-red);
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      white-space: nowrap;
+      visibility: hidden;
+    }
+    
+    #lab-header.hidden + nav .nav-label {
+      opacity: 1;
+      transform: translateX(0);
+      visibility: visible;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
     .intro {
       max-width: 900px;
       margin: 2rem auto 3rem;
       padding: 0;
       text-align: left;
+      flex: 1;
+    }
     }
     .intro p {
       color: var(--text-light);
       font-size: 1rem;
       margin-top: 1rem;
+      line-height: 1.6;
     }
-    .graphic img {
-      width: 95%;
-      max-width: 600px;
-      margin: 2rem auto;
+    .highlight-text {
+      color: #ff0029;
+      font-weight: 500;
+    }
+    .intro-img {
+        display: block;
+        width: 10000px; /*calc(100%)*/
+        max-width: 100%;
+        margin: 0 0 1rem;
+        height: 300px;         /* or whatever fixed height you prefer */
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.85;
+    }
+    .intro-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+/*       transform: translate(-50%, -50%); */
+      color: white; /* or black, depending on image */
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+      text-align: center;
+      white-space: nowrap;
     }
     footer {
       margin-top: 2rem;
       font-size: 0.875rem;
       color: #aaa;
       padding: 1.5rem 0;
+      background: var(--bg-light);
     }
 
     @media (max-width: 600px) {
@@ -100,36 +227,114 @@
         font-size: 1rem;
       }
     }
-  </style>
+
+    @media (max-width: 600px) {
+      .logo-img {
+        height: 24px;
+      }
+    }
+
+    #lab-header {
+      transition: transform 0.4s ease, opacity 0.4s ease; height 0.4s ease, padding 0.4s ease;
+      will-change: transform, opacity;
+    }  
+
+    #lab-header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Kim Quantum Lab</h1>
-    <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-  </header>
-
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="team.html">Team</a>
-    <a href="publications.html">Publications</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <main>
-    <h3>Current Members</h3>
-    <div class="member">
-      <h4>Prof. [Your Name]</h4>
-      <p>Principal Investigator</p>
+  <div class="content-wrapper">
+    <div class="topbar">
+      <header id="lab-header">
+        <h1>Kim Quantum Lab</h1>
+        <h2>Department of Materials Science & Engineering, University of Arizona</h2>
+      </header>
+      <nav class="nav-bar">
+<!--         <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div> -->
+        <div class="nav-label">
+          <a href="index.html">
+            <img src="Logo5.png" alt="Kim Quantum Lab Logo" class="logo-img">
+          </a>
+        </div>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+<!--           <a href="research.html">Research</a> -->
+          <a href="team.html">Team</a>
+          <a href="publications.html">Publications</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
     </div>
-    <!-- Add more members below -->
-    <div class="member">
-      <h4>Coming Soon</h4>
-      <p>Check back for team updates!</p>
+    <div class="topimage">
+      <img src="Team.png" alt="Lab visual" class="intro-img" />
+      <div class="intro-text">Team</div>
     </div>
-  </main>
-  <footer>
-    &copy; 2025 Kim Quantum Lab • University of Arizona
-  </footer>
+    
+    <div class="intro">
+       <section id="team" style="padding: 2rem 0; text-align: center; background: #fff;">
+        <h2 style="font-size: 2rem; margin-bottom: 2rem; color: #222;">Meet Our Team</h2>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 3rem;">
+          <!-- Brian Kim -->
+          <div style="flex: 1 1 250px; max-width: 300px;">
+            <img src="brian.jpg" alt="Brian S. Y. Kim" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+            <h3 style="margin-bottom: 0.5rem;">Brian S. Y. Kim</h3>
+            <p>Assistant Professor of MSE<br/>Assistant Professor of Physics</p>
+            <p><a href="mailto:briankim@arizona.edu" style="color: #446622;">briankim@arizona.edu</a></p>
+            <p>MS/PhD in EE, Stanford University (2011–2018)<br/>BS in EE, Northwestern (2008–2011)</p>
+            <p><a href="#">CV</a> | <a href="#">Google Scholar</a></p>
+          </div>
+      
+          <!-- Tuyen Huynh -->
+          <div style="flex: 1 1 250px; max-width: 300px;">
+            <img src="tuyen.jpg" alt="Tuyen Huynh" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+            <h3 style="margin-bottom: 0.5rem;">Tuyen Huynh</h3>
+            <p>Graduate Student Researcher</p>
+            <p><a href="mailto:tuyenhuynh@arizona.edu" style="color: #446622;">tuyenhuynh@arizona.edu</a></p>
+            <p>Department of MSE<br/>University of Arizona</p>
+          </div>
+      
+          <!-- Owen Lowery -->
+          <div style="flex: 1 1 250px; max-width: 300px;">
+            <img src="owen.jpg" alt="Owen Lowery" style="width: 200px; height: 200px; object-fit: cover; border-radius: 50%; margin-bottom: 1rem;" />
+            <h3 style="margin-bottom: 0.5rem;">Owen Lowery</h3>
+            <p>Undergraduate Student Researcher</p>
+            <p><a href="mailto:owenlowery@arizona.edu" style="color: #446622;">owenlowery@arizona.edu</a></p>
+            <p>Department of MSE<br/>University of Arizona</p>
+    </div>
+  </div>
+</section>
+  
+    </div>
+
+    <footer>
+      &copy; 2025 Kim Quantum Lab • University of Arizona
+    </footer>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      let lastScrollY = window.scrollY;
+      const header = document.getElementById('lab-header');
+  
+      window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+  
+        // Hide when scrolling down
+        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+          header.classList.add('hidden');
+        }
+  
+        // Only show header again when near top
+        if (currentScrollY < 50) {
+          header.classList.remove('hidden');
+        }
+  
+        lastScrollY = currentScrollY;
+      });
+    });
+  </script>
 </body>
 </html>
