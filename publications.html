@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Kim Lab | University of Arizona</title>
+  <title>Publications | Kim Lab</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Inter:wght@300;600&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -13,7 +13,7 @@
       --text-light: #666;
       --bg-light: #ffffff;
       --side-bg: #f1f1f1;
-      --highlight: #1abc9c; /* #ff0029 */
+      --highlight: #1abc9c;
     }
     * {
       box-sizing: border-box;
@@ -23,23 +23,16 @@
     html, body {
       height: 100%;
     }
-    /* Using the simpler, more robust background method */
     body {
       font-family: 'Inter', sans-serif;
       font-weight: 300;
-      background: var(--side-bg); 
+      background: var(--side-bg);
       color: var(--text-dark);
       text-align: center;
       font-size: 1rem;
       padding: 0;
       line-height: 1.6;
     }
-    .topimage {
-      top: 0;
-      background: var(--bg-light);
-      z-index: 100;
-    }
-    /* The content-wrapper gets the white background */
     .content-wrapper {
       max-width: 1000px;
       margin: 0 auto 3rem;
@@ -48,24 +41,6 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-    }
-    .intro-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-/*       transform: translate(-50%, -50%); */
-      color: white; /* or black, depending on image */
-      font-size: 3rem;
-      font-weight: bold;
-      text-shadow: 0px 0px 0px rgba(0,0,0,0.5);
-      text-align: center;
-      white-space: nowrap;
-    }
-    .logo-img {
-      height: 40px;          /* adjust as needed */
-      width: auto;
-      display: block;
     }
     header {
       padding: 1rem 1rem 1rem;
@@ -112,7 +87,6 @@
       font-size: 1.05rem;
       padding-bottom: 3px;
     }
-    /* This correctly styles the active "Home" link */
     nav a[href="publications.html"] {
       font-weight: 500;
       color: #1abc9c;
@@ -121,41 +95,53 @@
       display: flex;
       gap: 1rem;
     }
-    .intro {
+    .topimage {
+      position: relative; /* Needed for text overlay */
+      top: 0;
+      background: var(--bg-light);
+      z-index: 100;
+    }
+    .intro-img {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      height: 300px;
+      object-fit: cover;
+      object-position: center;
+      filter: brightness(70%); /* This darkens the image */
+    }
+    .intro-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2.8rem;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      text-align: center;
+      white-space: nowrap;
+      filter: brightness(70%);  
+    }
+    .main-content {
       max-width: 900px;
       margin: 2rem auto 3rem;
-      padding: 0 1rem; /* Added padding for mobile */
+      padding: 0 1rem;
       text-align: left;
       flex: 1;
     }
-    .intro p {
-      color: var(--text-light);
-      font-size: 1rem;
-      margin-top: 1rem;
-      line-height: 1.6;
+    .main-content h1 {
+        margin-bottom: 2rem;
+        font-size: 1rem; 
+        font-weight: 600; 
+        color: var(--highlight); /* Turquoise color */
     }
-    .highlight-text {
-      color: #1abc9c;
-      font-weight: 500;
-    }
-    .intro-img {
-        display: block;
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto 1rem;
-        height: 300px;
-        object-fit: cover;
-        object-position: center;
-        filter: brightness(60%);
-    }
-    .sponsor-logo-img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-    }
-   .publications-list {
+    /* MODIFIED: The counter is now reset on the list itself */
+    .publications-list {
         list-style: none;
         padding-left: 0;
+        counter-reset: publication;
     }
     .publications-list li {
         margin-bottom: 1.5rem;
@@ -184,11 +170,22 @@
         font-weight: 600;
         color: var(--text-dark);
     }
-    .section-break {
+    /* MODIFIED: New style for the heading within the list */
+    .publications-list li.list-heading {
+        color: var(--highlight);
+        font-weight: 600;
+        font-size: 1rem;
         margin-top: 4rem;
+        margin-bottom: 2rem;
+        padding-left: 0; /* Remove padding for heading */
+    }
+    /* MODIFIED: Hide the number for the heading list item */
+    .publications-list li.list-heading::before {
+        content: ""; /* No content */
+        counter-increment: none; /* Do not increment counter */
     }
     footer {
-      margin-top: 2rem;
+      margin-top: auto;
       font-size: 0.875rem;
       color: #aaa;
       padding: 1.5rem 0;
@@ -196,14 +193,11 @@
       border-top: 1px solid #D9E5EE;
     }
     @media (max-width: 600px) {
-      header h1 {
+      header h1, .intro-text {
         font-size: 2rem;
       }
       header h2 {
         font-size: 1rem;
-      }
-      .logo-img {
-        height: 24px;
       }
     }
   </style>
@@ -223,10 +217,10 @@
       </div>
     </nav>
     <div class="topimage">
-      <img src="publications.jpeg" alt="Lab visual" class="intro-img" />
+      <img src="pucblications.jpeg" alt="Lab visual" class="intro-img" />
       <div class="intro-text">Publications</div>
     </div>
-   <div class="main-content">
+    <div class="main-content">
       <h1>Submitted</h1>
       <!-- MODIFIED: Both sections are now inside a single <ol> -->
       <ol class="publications-list">
@@ -282,3 +276,4 @@
   </script>
 </body>
 </html>
+
