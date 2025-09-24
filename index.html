@@ -33,13 +33,7 @@
       padding: 0;
       line-height: 1.6;
     }
-    .topbar {
-      position: sticky;
-      top: 0;
-      background: var(--bg-light);
-      z-index: 9999;
-      /*border-bottom: 1px solid #ccc;*/
-    }
+    /* MODIFIED: The .topbar class has been removed as it's no longer needed */
     .topimage {
       top: 0;
       background: var(--bg-light);
@@ -57,21 +51,17 @@
       flex-direction: column;
     }
     .logo-img {
-      height: 40px;         /* adjust as needed */
+      height: 40px;          /* adjust as needed */
       width: auto;
       display: block;
     }
+    /* MODIFIED: Added a background color to the header since its parent container was removed */
     header {
-      padding: 0rem 1rem 1rem;
-      transition: transform 0.4s ease, opacity 0.4s ease, height 0.4s ease, padding 0.4s ease;
-      will-change: transform, opacity, height;
-      transform-origin: top center;
-    }
-    header.shrink h1 {
-      font-size: 1.6rem;
-    }
-    header.shrink h2 {
-      font-size: 1.6rem;
+      padding: 1rem 1rem 1rem;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      will-change: transform, opacity;
+      background: var(--bg-light);
+      z-index: 9999; /* Ensure header is on top initially */
     }
     header h1 {
       font-family: 'DM Sans', sans-serif;
@@ -86,39 +76,21 @@
       margin-top: 0.15rem;
     }
     header.hidden {
-      transform: scaleY(0.6) translateY(-30%);
+      transform: translateY(-100%);
       opacity: 0;
       pointer-events: none;
-      height: 0;
-      padding: 0;
-      margin: 0;
-      overflow: hidden;
     }
-/*     nav {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-top: 1px solid #D9E5EE;
-      border-bottom: 1px solid #D9E5EE;
-      margin-bottom: 0rem;
-      flex-wrap: wrap;
-      max-width: none;
-      margin-left: 0;
-      margin-right: 0;
-      background: var(--bg-light);
-    } */
 
-    nav {
-      display: grid;
-      grid-template-columns: auto 1fr auto 1fr;
-      align-items: center;
-      padding: 0.6rem 1rem;
-      border-top: 1px solid #D9E5EE;
-      border-bottom: 1px solid #D9E5EE;
-      background: var(--bg-light);
+    nav.nav-bar {
       position: sticky;
       top: 0;
+      display: flex;
+      justify-content: center; /* center nav links */
+      align-items: center;
+      padding: 1rem;
+      border-top: 1px solid #D9E5EE;
+      border-bottom: 1px solid #D9E5EE;
+      background: var(--bg-light);
       z-index: 9998;
     }
     
@@ -132,17 +104,6 @@
     nav a[href="index.html"] {
       font-weight: 500;
       color: #1abc9c;
-    }
-    nav.nav-bar {
-      position: relative;
-      display: flex;
-      justify-content: center; /* center nav links */
-      align-items: center;
-      padding: 1rem;
-      border-top: 1px solid #D9E5EE;
-      border-bottom: 1px solid #D9E5EE;
-      background: var(--bg-light);
-      z-index: 9998;
     }
     
     .nav-label {
@@ -176,7 +137,6 @@
       text-align: left;
       flex: 1;
     }
-    }
     .intro p {
       color: var(--text-light);
       font-size: 1rem;
@@ -192,7 +152,7 @@
         width: 1000px; /*calc(100%)*/
         max-width: 100%;
         margin: 0 0 1rem;
-        height: 300px;         /* or whatever fixed height you prefer */
+        height: 300px;          /* or whatever fixed height you prefer */
         object-fit: cover;
         object-position: center;
     }
@@ -212,49 +172,27 @@
       header h2 {
         font-size: 1rem;
       }
-    }
-
-    @media (max-width: 600px) {
       .logo-img {
         height: 24px;
       }
-    }
-
-    #lab-header {
-      transition: transform 0.4s ease, opacity 0.4s ease; height 0.4s ease, padding 0.4s ease;
-      will-change: transform, opacity;
-    }  
-
-    #lab-header.hidden {
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
     }
 </style>
 </head>
 <body>
   <div class="content-wrapper">
-    <div class="topbar">
-      <header id="lab-header">
-        <h1>Kim Lab</h1>
-        <h2>Department of Materials Science & Engineering, University of Arizona</h2>
-      </header>
-      <nav class="nav-bar">
-<!--         <div class="nav-label"><a href="index.html">Kim Quantum Lab</a></div> -->
-        <!-- <div class="nav-label">
-          <a href="index.html">
-            <img src="Logo5.png" alt="Kim Quantum Lab Logo" class="logo-img">
-          </a>
-        </div> -->
-        <div class="nav-links">
-          <a href="index.html"><strong>Home</strong></a>
-<!--           <a href="research.html">Research</a> -->
-          <a href="team.html">Team</a>
-          <a href="publications.html">Publications</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </nav>
-    </div>
+    <!-- MODIFIED: The .topbar div has been removed -->
+    <header id="lab-header">
+      <h1>Kim Lab</h1>
+      <h2>Department of Materials Science & Engineering, University of Arizona</h2>
+    </header>
+    <nav class="nav-bar">
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="team.html">Team</a>
+        <a href="publications.html">Publications</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
     <div class="topimage">
       <img src="Main image 2.png" alt="Lab visual" class="intro-img" />
     </div>
@@ -263,12 +201,9 @@
             
       <p><span class="highlight-text"><strong>Welcome to the Kim Lab @ UArizona!</strong></span><br><br>
 
-        The core of our research interest lies at the intersection of experimental condensed matter physics and device physics. We design, manipulate, and probe low-dimensional quantum materials and heterostructures to uncover fundamental light-matter interactions and emergent exotic states of matter in condensed matter systems. Our experimental approaches include a combination of state-of-the-art device fabrication and characterization approaches—ranging from robotic nano-manufacturing and assembly to reconfigurable device architectures to multi-modal nano-imaging. We also put a strong emphasis in translating fundamental developments made in our research into novel functionalities for a new generation of electronic, photonic and quantum technologies.<br><br>
+        The core of our research interest lies at the intersection of experimental condensed matter physics and device physics. We design, manipulate, and probe low-dimensional quantum materials and heterostructures to uncover fundamental light-matter interactions and emergent exotic states of matter in condensed matter systems. Our experimental approaches include a combination of state-of-the-art device fabrication and characterization approaches—ranging from robotic nano-manufacturing and assembly to reconfigurable device architectures to multi-modal nano-imaging. We also put a strong emphasis in translating fundamental developments made in quantum materials into novel functionalities for a new generation of electronic, photonic and quantum technologies.<br><br>
 
-        Please browse our Research page to learn more about the research opportunities we offer, and don't hesitate to reach out if you have any questions.<br><br>
-
-        <span class="highlight-text"><strong>Sponsor:</strong></span><br><br>
-      </p>
+        Please browse our Research page to learn more about the research opportunities we offer, and't hesitate to reach out if you have any questions.</p>
     </div>
 
     <footer>
@@ -277,29 +212,21 @@
   </div>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      let lastScrollY = window.scrollY;
+      // --- Get the current year for the footer ---
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // --- Handle the header visibility on scroll ---
       const header = document.getElementById('lab-header');
-  
+      const scrollThreshold = 50; // A single, clear threshold
+
       window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-  
-        // Hide when scrolling down
-        if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        if (window.scrollY > scrollThreshold) {
           header.classList.add('hidden');
-        }
-  
-        // Only show header again when near top
-        if (currentScrollY < 50) {
+        } else {
           header.classList.remove('hidden');
         }
-  
-        lastScrollY = currentScrollY;
       });
     });
-
-    document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("year").textContent = new Date().getFullYear();
-  });
   </script>
 </body>
 </html>
