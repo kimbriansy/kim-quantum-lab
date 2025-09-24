@@ -280,34 +280,3 @@
   </script>
 </body>
 </html>
-
-
-
-    
-   
-   
-
-    <footer>
-      &copy; <span id="year"></span> Kim Lab • University of Arizona
-    </footer>
-  </div>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // --- Get the current year for the footer ---
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      // --- Handle the header visibility on scroll ---
-      const header = document.getElementById('lab-header');
-      const scrollThreshold = 50; // A single, clear threshold
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > scrollThreshold) {
-          header.classList.add('hidden');
-        } else {
-          header.classList.remove('hidden');
-        }
-      });
-    });
-  </script>
-</body>
-</html>
