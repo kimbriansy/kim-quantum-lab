@@ -33,7 +33,6 @@
       padding: 0;
       line-height: 1.6;
     }
-    /* MODIFIED: The .topbar class has been removed as it's no longer needed */
     .topimage {
       top: 0;
       background: var(--bg-light);
@@ -55,7 +54,6 @@
       width: auto;
       display: block;
     }
-    /* MODIFIED: Added a background color to the header since its parent container was removed */
     header {
       padding: 1rem 1rem 1rem;
       transition: transform 0.4s ease, opacity 0.4s ease;
@@ -81,6 +79,9 @@
       pointer-events: none;
     }
 
+    /* MODIFIED: This is the key fix. These two lines force the nav bar onto its
+       own rendering layer, preventing the header's animation from interfering
+       with its sticky positioning. */
     nav.nav-bar {
       position: sticky;
       top: 0;
@@ -92,6 +93,9 @@
       border-bottom: 1px solid #D9E5EE;
       background: var(--bg-light);
       z-index: 9998;
+      /* FIX: Promote to its own compositing layer to solve rendering glitches */
+      transform: translateZ(0);
+      will-change: transform;
     }
     
     nav a {
@@ -156,6 +160,14 @@
         object-fit: cover;
         object-position: center;
     }
+
+    .sponsor-logo-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #eee;
+      margin-top: 1rem; /* Add some space above the image */
+    }
+
     footer {
       margin-top: 2rem;
       font-size: 0.875rem;
@@ -180,7 +192,6 @@
 </head>
 <body>
   <div class="content-wrapper">
-    <!-- MODIFIED: The .topbar div has been removed -->
     <header id="lab-header">
       <h1>Kim Lab</h1>
       <h2>Department of Materials Science & Engineering, University of Arizona</h2>
@@ -189,7 +200,6 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="team.html">Team</a>
-        <a href="researh.html">Research</a>
         <a href="publications.html">Publications</a>
         <a href="contact.html">Contact</a>
       </div>
