@@ -14,6 +14,7 @@
       --bg-light: #ffffff;
       --side-bg: #f1f1f1;
       --highlight: #1abc9c;
+      --link-blue: #00205B; /* UA Blue for links */
     }
     * {
       box-sizing: border-box;
@@ -87,7 +88,6 @@
       font-size: 1.05rem;
       padding-bottom: 3px;
     }
-    /* MODIFIED: Highlight 'Team' link instead */
     nav a[href="team.html"] {
       font-weight: 500;
       color: var(--highlight);
@@ -95,34 +95,6 @@
     .nav-links {
       display: flex;
       gap: 1rem;
-    }
-    .topimage {
-      position: relative; /* Needed for text overlay */
-      top: 0;
-      background: var(--bg-light);
-      z-index: 100;
-    }
-    .intro-img {
-      display: block;
-      width: 100%;
-      max-width: 1000px;
-      margin: 0 auto;
-      height: 300px;
-      object-fit: cover;
-      object-position: center;
-      filter: brightness(70%); /* This darkens the image */
-    }
-    .intro-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 2.8rem;
-      font-weight: 600;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-      text-align: center;
-      white-space: nowrap;
     }
     .main-content {
       max-width: 900px;
@@ -140,61 +112,53 @@
       border-top: 1px solid #D9E5EE;
     }
     
-    /* NEW STYLES FOR TEAM PAGE */
+    /* UPDATED STYLES FOR NEW TEAM PAGE LAYOUT */
     .team-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 2rem;
-        padding-top: 1rem;
+        padding: 2rem 0;
     }
-    .team-member {
-        text-align: center;
+    .team-card {
+        border: 1px solid #e0e0e0;
+        text-align: left;
     }
-    .team-member img {
+    .team-card img {
         width: 100%;
-        max-width: 250px;
         height: auto;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        margin-bottom: 1rem;
-        filter: grayscale(100%);
-        transition: filter 0.3s ease;
+        display: block;
     }
-    .team-member:hover img {
-        filter: grayscale(0%);
+    .team-card-info {
+        padding: 1rem;
     }
-    .team-member h3 {
+    .team-card-info .name a {
+        font-size: 1.1rem;
         font-weight: 600;
+        color: var(--link-blue);
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+    }
+     .team-card-info .name a:hover {
+        color: var(--ua-red);
+    }
+    .team-card-info .title {
         color: var(--text-dark);
-        font-size: 1.2rem;
-        margin-bottom: 0.25rem;
+        margin: 0.25rem 0;
+        font-size: 1rem;
     }
-    .team-member .title {
+    .team-card-info .email {
         color: var(--text-light);
-        margin-bottom: 0.5rem;
-    }
-    .team-member .education, .team-member .affiliation {
         font-size: 0.9rem;
-        color: var(--text-light);
-        line-height: 1.4;
-    }
-    .team-member a {
-        color: var(--highlight);
         text-decoration: none;
-        font-weight: 500;
-        font-size: 0.9rem;
     }
-    .team-member a:hover {
+    .team-card-info .email:hover {
         text-decoration: underline;
     }
-    
+
     @media (max-width: 600px) {
-      header h1, .intro-text {
-        font-size: 2rem;
-      }
-      header h2 {
-        font-size: 1rem;
-      }
+      header h1 { font-size: 2rem; }
+      header h2 { font-size: 1rem; }
     }
   </style>
 </head>
@@ -213,40 +177,42 @@
       </div>
     </nav>
     <div class="topimage">
-      <img src="team.jpeg" alt="Kim Lab Team" class="intro-img" />
-      <div class="intro-text">Our Team</div>
+      <img src="Team.png" alt="Lab visual" class="intro-img" />
+      <div class="intro-text">Team</div>
     </div>
     <div class="main-content">
-      
       <div class="team-grid">
         
-        <div class="team-member">
+        <div class="team-card">
           <img src="brian_kim.jpeg" alt="Photo of Brian S. Y. Kim">
-          <h3>Brian S. Y. Kim</h3>
-          <p class="title">Assistant Professor</p>
-          <p class="affiliation">MSE & Physics, University of Arizona</p>
-          <p class="education">MS/PhD in EE, Stanford University<br>BS in EE, Northwestern University</p>
-          <p><a href="mailto:briankim@arizona.edu">briankim@arizona.edu</a></p>
-          <p><a href="#">CV</a> | <a href="#">Google Scholar</a></p>
+          <div class="team-card-info">
+            <p class="name"><a href="#">Brian S. Y. Kim</a></p>
+            <p class="title">Assistant Professor of MSE and Physics</p>
+            <a href="mailto:briankim@arizona.edu" class="email">briankim@arizona.edu</a>
+          </div>
         </div>
         
-        <div class="team-member">
+        <div class="team-card">
           <img src="tuyen_huynh.jpeg" alt="Photo of Tuyen Huynh">
-          <h3>Tuyen Huynh</h3>
-          <p class="title">Graduate Student Researcher of MSE</p>
-          <p><a href="mailto:tuyenhuynh@arizona.edu">tuyenhuynh@arizona.edu</a></p>
+          <div class="team-card-info">
+            <p class="name"><a href="#">Tuyen Huynh</a></p>
+            <p class="title">Graduate Student Researcher of MSE</p>
+            <a href="mailto:tuyenhuynh@arizona.edu" class="email">tuyenhuynh@arizona.edu</a>
+          </div>
         </div>
         
-        <div class="team-member">
+        <div class="team-card">
           <img src="owen_lowery.jpeg" alt="Photo of Owen Lowery">
-          <h3>Owen Lowery</h3>
-          <p class="title">Undergraduate Student Researcher of MSE</p>
-          <p><a href="mailto:owenlowery@arizona.edu">owenlowery@arizona.edu</a></p>
+          <div class="team-card-info">
+            <p class="name"><a href="#">Owen Lowery</a></p>
+            <p class="title">Undergraduate Student Researcher of MSE</p>
+            <a href="mailto:owenlowery@arizona.edu" class="email">owenlowery@arizona.edu</a>
+          </div>
         </div>
         
+        </div>
     </div>
-
-    </div>
+    
     <footer>
       &copy; <span id="year"></span> Kim Lab • University of Arizona
     </footer>
